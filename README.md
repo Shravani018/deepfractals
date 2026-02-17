@@ -10,3 +10,5 @@ Deep learning math iterated across the complex plane. The fractal geometry that 
 **`forward_pass.py`**
 
 Iterates a single neural layer `z → tanh(w·z + b)` as a complex map, where `w` is the weight, `z` is the input, and `b` is the bias. `tanh` is the activation function, limiting the output range between -1 and 1. Each pixel represents a (weight, bias) pair. Color encodes whether the repeated forward pass diverges or stabilizes, and how fast.
+
+<img src="outputs/forward_pass.png" width="400" height="400"/>
