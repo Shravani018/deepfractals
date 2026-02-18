@@ -71,7 +71,7 @@ img*=vig
 fig, ax=plt.subplots(figsize=(10, 10), facecolor="#000000")
 ax.imshow(img, cmap=palette, origin="lower", interpolation="lanczos",
           vmin=0, vmax=1, extent=[x0, x1, y0, y1])
-ax.set_title("Forward Pass Dynamics: z → tanh(w*z + b)",
+ax.set_title("Forward Pass Dynamics: z -> tanh(w*z + b)",
              color="white", fontsize=13, fontweight="bold",
              fontfamily="monospace", pad=14)
 ax.set_xlabel("Re(w)", color="#666688", fontsize=9, fontfamily="monospace")
