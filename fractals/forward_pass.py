@@ -34,8 +34,8 @@ palette=LinearSegmentedColormap.from_list("", [
 # Creating the grid
 x0, x1, y0, y1=bounds
 c=(np.linspace(x0, x1, img_w)[np.newaxis,:] + 1j*np.linspace(y0, y1, img_h)[:,np.newaxis])
-w, b=c, c * 0.3j
-z=np.full_like(c, 0.3+0.0j)
+w, b=c, c * 0.3j #weights and biases 
+z=np.full_like(c, 0.3+0.0j) #input 
 # Initialize arrays for escape time, smooth coloring, orbit trap, final angle, and escape mask
 smooth=np.zeros((img_h, img_w), dtype=float)
 trap_min=np.full((img_h, img_w), np.inf)
@@ -70,7 +70,7 @@ img*=vig
 fig, ax=plt.subplots(figsize=(10, 10), facecolor="#000000")
 ax.imshow(img, cmap=palette, origin="lower", interpolation="lanczos",
           vmin=0, vmax=1, extent=[x0, x1, y0, y1])
-ax.set_title("Forward Pass Dynamics: z → tanh(w·z + b)",
+ax.set_title("Forward Pass Dynamics: z → tanh(w*z + b)",
              color="white", fontsize=13, fontweight="bold",
              fontfamily="monospace", pad=14)
 ax.set_xlabel("Re(w)", color="#666688", fontsize=9, fontfamily="monospace")
