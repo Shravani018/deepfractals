@@ -28,3 +28,14 @@ For each starting weight `w0` in the complex plane, gradient descent runs until 
 <p align="center">
   <img src="outputs/gradient_basins.png" width="600"/>
 </p>
+
+
+### 3. Backpropagation Error Flow
+**`backpropogation_error_flow.py`**
+
+Iterates the backward pass `delta -> tanh'(w * delta) * delta + c` as a complex map, where `delta` is the error signal flowing backward and `tanh'(z) = 1 - tanh^2(z)` is the local gradient that scales it at each layer.
+For each point in the complex plane, `w` encodes the weight and `c` encodes the input. Color encodes whether the error signal escapes to infinity, vanishes to zero, or orbits near the unit circle, the same three regimes that determine whether a deep network trains, dies, or explodes.
+
+<p align="center">
+  <img src="outputs/backprop.png" width="600"/>
+</p>
