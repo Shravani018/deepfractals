@@ -15,3 +15,13 @@ Iterates a single neural layer `z → tanh(w·z + b)` as a complex map,where `w`
 Color encodes whether the repeated forward pass diverges or stabilizes, and how fast.
 
 <img src="outputs/forward_pass.png" width="400" height="400"/>
+
+### 2. Gradient Flow
+**`gradient_flow.py`**
+
+Iterates the gradient update rule `z → z − η · ∇L(z)` as a complex map, where `η` is the learning rate and `∇L(z)` is the gradient of a simple loss landscape evaluated at `z`.
+The loss is defined as `L(z) = z² − c`, so the gradient step becomes the Newton-like iteration `z → z − η · (z² − c)`, making `c` the target and `η` the step size encoded per pixel.
+In the real line this is just gradient descent converging to a minimum, but in the complex plane basins of attraction shatter into fractal boundaries — the same instability that makes learning rate tuning so sensitive in practice.
+Color encodes which basin each point falls into and how many steps it takes to get there.
+
+<img src="outputs/gradient_basins.png" width="400" height="400"/>
